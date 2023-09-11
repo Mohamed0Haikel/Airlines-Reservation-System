@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Booking">
+    <Key>
+      <PropertyRef Name="TicketId" />
+    </Key>
+    <Property Name="TicketId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustomerId" Type="int" />
+    <Property Name="DateofJourney" Type="datetime" />
+    <Property Name="FlighId" Type="int" />
+    <Property Name="Seatno" Type="int" />
+  </EntityType>
+  <EntityType Name="Flight_Details">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Flight_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Source" Type="nvarchar" MaxLength="50" />
+    <Property Name="Destination" Type="nvarchar" MaxLength="50" />
+    <Property Name="Arrival_Time" Type="nvarchar" MaxLength="50" />
+    <Property Name="Departure" Type="nvarchar" MaxLength="50" />
+    <Property Name="Seats" Type="int" />
+    <Property Name="Flight_Class" Type="nvarchar" MaxLength="50" />
+    <Property Name="Flight_Charges" Type="decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Tbl_Customer_Details">
+    <Key>
+      <PropertyRef Name="CUS_id" />
+    </Key>
+    <Property Name="CUS_id" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CUS_firstname" Type="nvarchar" MaxLength="50" />
+    <Property Name="CUS_surname" Type="nvarchar" MaxLength="50" />
+    <Property Name="CUS_BirthDate" Type="nvarchar" MaxLength="50" />
+    <Property Name="CUS_Email" Type="nvarchar(max)" />
+    <Property Name="CUS_Phone" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Booking" EntityType="Self.Booking" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Flight_Details" EntityType="Self.Flight_Details" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Customer_Details" EntityType="Self.Tbl_Customer_Details" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

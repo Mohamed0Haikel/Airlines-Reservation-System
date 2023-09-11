@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Booking">
+    <Key>
+      <PropertyRef Name="TicketId" />
+    </Key>
+    <Property Name="TicketId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerId" Type="Int32" />
+    <Property Name="DateofJourney" Type="DateTime" Precision="3" />
+    <Property Name="FlighId" Type="Int32" />
+    <Property Name="Seatno" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Flight_Details">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Flight_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Source" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Destination" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Arrival_Time" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Departure" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Seats" Type="Int32" />
+    <Property Name="Flight_Class" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Flight_Charges" Type="Decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Tbl_Customer_Details">
+    <Key>
+      <PropertyRef Name="CUS_id" />
+    </Key>
+    <Property Name="CUS_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CUS_firstname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CUS_surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CUS_BirthDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CUS_Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CUS_Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="Reservation_dbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Admins" EntityType="Self.Admin" />
+    <EntitySet Name="Bookings" EntityType="Self.Booking" />
+    <EntitySet Name="Flight_Details" EntityType="Self.Flight_Details" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="Tbl_Customer_Details" EntityType="Self.Tbl_Customer_Details" />
+  </EntityContainer>
+</Schema>
